@@ -18,7 +18,10 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "noble-device": "^1.4.1"
+    "usb": "git+https://github.com/tessel/node-usb.git",
+    "bluetooth-hci-socket": "git+https://github.com/sandeepmistry/node-bluetooth-hci-socket.git",
+    "noble": "latest",
+    "noble-device": "latest"
   },
   "devDependencies": {
     "async": "~0.2.7",
