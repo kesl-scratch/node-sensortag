@@ -18,6 +18,7 @@ function Sensor_Values(left,right)
   this.gyro_y=0;
   this.gyro_z=0;
   this.temperature=0;
+  this.ir_temperature=0;
   this.lux=0;
   this.baro=0;
   this.altitude=0;
@@ -199,19 +200,20 @@ wsServer.on('request', function(request) {
                     });
 
                     sensorTag.readIrTemperature(function(error, objectTemperature=0, ambientTemperature=0) {
-                      ipopcon["data"].temperature = ambientTemperature;
-            //          console.log('temperature : ' + ipopcon["data"].temperature);
+                      ipopcon["data"].ir_temperature = ambientTemperature;
+            //          console.log('ir_temperature : ' + ipopcon["data"].ir_temperature);
                     });
                     sensorTag.readLuxometer(function(error, lux=0) {
                       ipopcon["data"].lux = lux;
             //          console.log('lux : ' + ipopcon["data"].lux);
                     });
-                    sensorTag.readBarometricPressure(function(error, pressure=0) {
+                    sensorTag.readBarometricPressure(function(error, temp, pressure=0) {
                       ipopcon["data"].baro = pressure;
+                      ipopcon["data"].temperature = temp;
 
                       ipopcon["data"].altitude = 44330*(1 - Math.pow((pressure/1025.6),1/5.255)  );    // p0 = 1013.4(seoul see hPa)
-
-                //      console.log('baro : ' + ipopcon["data"].baro);
+              //         console.log('baro : ' + ipopcon["data"].baro);
+              //        console.log('temperature : ' + ipopcon["data"].temperature);
                     });
 
                     callback();
