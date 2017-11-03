@@ -21,7 +21,7 @@
     "circular-json": "^0.3.3",
     "websocket": "git+https://github.com/theturtle32/WebSocket-Node.git",
     "usb": "git+https://github.com/tessel/node-usb.git",
-    "bluetooth-hci-socket": "git+https://github.com/kesl-scratch/node-bluetooth-hci-socket.git",
+    "bluetooth-hci-socket": "git+https://github.com/sandeepmistry/node-bluetooth-hci-socket.git",
     "noble": "latest",
     "noble-device": "latest"
   },
